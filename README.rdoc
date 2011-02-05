@@ -4,7 +4,7 @@ Capistrano extension that maps RightScale parameters to Roles
 
 == Quick start
 
-=== Install packages
+=== Installation
 
 Install the packages
 
