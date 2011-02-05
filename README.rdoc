@@ -32,8 +32,8 @@ Install the gem:
     require 'cap-rightscale'
     require 'cap-rightscale/recipes'
 
-    SERVER_ARRAY_ID = 1
-    DEPLOYMENT_ID = 1
+    DEPLOYMENT_ID = 12345
+    SERVER_ARRAY_ID = 6789
 
     # set roles
     nickname :web, :name_prefix => "proxy", :deployment => DEPLOYMENT_ID
