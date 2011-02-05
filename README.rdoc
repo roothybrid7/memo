@@ -2,7 +2,7 @@
 
 Capistrano extension that maps RightScale parameters to Roles
 
-== Quick start
+== Gettings start
 
 === Installation
 
@@ -10,22 +10,29 @@ Install the packages
 
 For Debian/Ubuntu:
 
-    apt-get install ruby ruby-dev rubygems
+    $ apt-get install ruby ruby-dev rubygems
 
 For RHEL5 (probably needs the EPEL repository enabled):
 
-    yum install ruby ruby-devel rubygems
+    $ yum install ruby ruby-devel rubygems
 
 For MacOSX(MacPorts):
 
-    port install ruby rb-rubygems
+    $ port install ruby rb-rubygems
 
 
 Install the gem:
 
-    gem install cap-rightscale
+    $ gem install cap-rightscale
 
-=== cap
+=== Settings
+
+To prepare, go info the root directory of that project and run capify:
+
+    $ cd <project_dir>
+    $ capify .
+
+Configure(example deploy.rb):
 
     # config/deploy.rb
     require 'rubygems'
@@ -38,8 +45,12 @@ Install the gem:
     # set roles
     nickname :web, :name_prefix => "proxy", :deployment => DEPLOYMENT_ID
     server_array :app, :array_id => SERVER_ARRAY_ID
-    tag :dbm, :tags => "xx_db:role=master", :deployment => DEPLOYMENT_ID, :no_release => true
-    tag :dbs, :tags => "xx_db:role=slave", :deployment => DEPLOYMENT_ID
+    tag :dbm, :tags => "xx_db:role=master", :deployment => DEPLOYMENT_ID
+    tag :dbs, :tags => "xx_db:role=slave", :deployment => DEPLOYMENT_ID, :no_release => true
+
+Run testing:
+
+    $ cap rightscale:none
 
 == Contributing to cap-rightscale
  
