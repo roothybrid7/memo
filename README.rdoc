@@ -161,6 +161,22 @@ Using ping and name resolv, validate host(except invalid host).
     # config/deploy.rb
     rs_enable :validate_echo, :validate_resolv
 
+== Others
+
+
+      # Get servers in deployment
+      # === Parameters
+      # * _role_ - Capistrano role symbol (ex. :app, :web, :db)
+      # * _params[:name_prefix]_ - ex. :name_prefix => "db" (RightScale instance nickname)
+      # * _params[:deployment]_ - ex. :deployment => 1[https://my.rightscale.com/deployments/{id}]
+      # * _params[:domain]_ domain name(user defined) - ex. :domain => "example.com"
+      # * _params[:except_tags]_ except servers matching tags
+      #   - ex. :except_tags => ["xx_app:state=broken", "xx_app:state=out_of_service"]
+      # * _params[:xxx]_ - ex. :user => "www", :port => 2345, etc...
+      # === Examples
+      #   deployment_id = 1
+      #   nickname :db, :name_prefix => "db", :deployment => deployment_id, :user => "mysql"
+
 == Contributing to cap-rightscale
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
