@@ -81,13 +81,14 @@ Machine tags and deployment mappings:
 === RightScale API Credential
 
 see the below site:
+
 {Authentication}[http://support.rightscale.com/12-Guides/03-RightScale_API/RightScale_API_Examples/Authentication] - RightScale Cloud Management Support Portal
 
 You must authenticate to use the RightScale API, Make sure to set your own login/password(used to login to RightScale dashboard) and account number(the tail end of the Dashboard URL: Settings > Account)
 
-    Put Authentication file described in RightScale API credentials into `<HOME>/.rsconf/rsapiconfig.yml`
+Put Authentication file described in RightScale API credentials into `<HOME>/.rsconf/rsapiconfig.yml`
 
-    Or, You can define filepath:
+Or, You can define filepath:
 
     # config/deploy.rb
     set :rs_confpath, "/project/config/rs_auth.yml"
