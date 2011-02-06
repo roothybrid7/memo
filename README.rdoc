@@ -43,8 +43,8 @@ Configure Capfile(example deploy.rb):
     # set roles
     nickname :web, :name_prefix => "proxy", :deployment => DEPLOYMENT_ID
     server_array :app, :array_id => SERVER_ARRAY_ID
-    tag :dbm, :name_prefix => "db", :tags => "xx_db:role=master", :deployment => DEPLOYMENT_ID
-    tag :dbs, :name_prefix => "db", :tags => "xx_db:role=slave", :deployment => DEPLOYMENT_ID, :no_release => true
+    tag :dbm, :tags => "xx_db:role=master", :deployment => DEPLOYMENT_ID
+    tag :dbs, :tags => "xx_db:role=slave", :deployment => DEPLOYMENT_ID, :no_release => true
 
 Put RightScale API Credential file into <HOME>/.rsconf/rsapiconfig.yml
 
@@ -75,8 +75,8 @@ ServerArray mappings:
 
 Machine tags and deployment mappings:
 
-    tag :dbm, :name_prefix => "db", :tags => ["xx_db:env=prod", "xx_db:role=master"], :deployment => 12345
-    # => role :dbm, ["dbXXX", ... in deployment ID:12345]
+    tag :dbm, :name_prefix => "db", :tags => ["xx_db:env=prod", "xx_db:role=master"], :deployment => 12345, :primary => true
+    # => role(:dbm, :primary => true) { ["dbXXX", ... in deployment ID:12345] }
 
 === RightScale API Credential
 
