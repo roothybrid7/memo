@@ -39,14 +39,21 @@ Configure(example deploy.rb):
     require 'cap-rightscale'
     require 'cap-rightscale/recipes'
 
-    DEPLOYMENT_ID = 12345
-    SERVER_ARRAY_ID = 6789
+    DEPLOYMENT_ID = 12345       # RightScale Deployment ID
+    SERVER_ARRAY_ID = 6789      # RightScale ServerArray ID
 
     # set roles
     nickname :web, :name_prefix => "proxy", :deployment => DEPLOYMENT_ID
     server_array :app, :array_id => SERVER_ARRAY_ID
-    tag :dbm, :tags => "xx_db:role=master", :deployment => DEPLOYMENT_ID
-    tag :dbs, :tags => "xx_db:role=slave", :deployment => DEPLOYMENT_ID, :no_release => true
+    tag :dbm, :name_prefix => "db", :tags => "xx_db:role=master", :deployment => DEPLOYMENT_ID
+    tag :dbs, :name_prefix => "db", :tags => "xx_db:role=slave", :deployment => DEPLOYMENT_ID, :no_release => true
+
+Put RightScale API Credential file into <HOME>/.rsconf/rsapiconfig.yml
+
+    # <HOME>/.rsconf/rsapiconfig.yml
+    username: user@example.com
+    password: yourpassword
+    account: 1
 
 Run testing:
 
