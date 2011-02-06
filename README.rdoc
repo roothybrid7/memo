@@ -145,6 +145,8 @@ Using RightScale Nickname, How to DNS hostname for ec2 instances:
     # config/deploy.rb
     rs_enable :use_nickname         # RightScale nickname
     set :rs_domain, "ec2.int.com"   # set subdomain managed by your dns server zone(option: default ref <tt>search</tt> in <tt>/etc/resolv.conf</tt>)
+    # set domain each role(priority over <tt>set :rs_domain</tt>)
+    nickname :web, :nickname => "lb", :domain => "ec2.com"
 
 === Validate
 
