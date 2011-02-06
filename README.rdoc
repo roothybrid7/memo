@@ -1,6 +1,7 @@
 = cap-rightscale
 
 Capistrano extension that maps RightScale parameters to Roles
+[RightScale](http://www.rightscale.com)
 
 == Installation
 
