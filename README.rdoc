@@ -136,6 +136,7 @@ Using RightScale Nickname, How to DNS hostname for ec2 instances:
 * {"Environment Inputs - RightScale Cloud Management Support Portal"}[http://support.rightscale.com/15-References/Lists/List_of_Environment_Inputs#RightScale_%28RS%29.3a]
 * {"HowTo update DNS hostnames automatically for your Amazon EC2 instances | MDLog:/sysadmin"}[http://www.ducea.com/2009/06/01/howto-update-dns-hostnames-automatically-for-your-amazon-ec2-instances/]
 
+
     # config/deploy.rb
     rs_enable :use_nickname         # RightScale nickname
     set :rs_domain, "ec2.int.com"   # set subdomain managed by your dns server zone(option: default ref params <tt>search</tt> in <tt>/etc/resolv.conf</tt>)
