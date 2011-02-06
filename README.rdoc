@@ -102,7 +102,7 @@ Default cache lifetime is 86400 seconds(1day) each role.
 modified cache life time:
 
     # config/deploy.rb
-    set :rs_lifetime 86400 * 7  # 1week
+    set :rs_lifetime, 86400 * 7  # 1week
 
 
 This can be disabled with ENV variable: <tt>RS_CACHE=false</tt> , <tt>set :rs_lifetime 0</tt> OR <tt>rs_disable :use_rs_cache</tt> in the Capfile.
@@ -118,6 +118,28 @@ Conversely, to use cache to infinity with <tt>set :rs_lifetime -1</tt>.
 
     # config/deploy.rb
     set :rs_lifetime -1
+
+=== Server name to associate with the role
+
+Default name is Amazon EC2 local IP address, This can be changed according to the parameter.
+
+Use EC2 public IP address:
+
+    # config/deploy.rb
+    rs_enable :use_public_ip
+
+Use RightScale nickname(use as name to resolve for host in <tt>/etc/hosts</tt> or dns record entry).
+This takes priority over ip address.
+
+Using RightScale Nickname, How to DNS hostname for ec2 instances:
+{"Environment Inputs - RightScale Cloud Management Support Portal"}[http://support.rightscale.com/15-References/Lists/List_of_Environment_Inputs#RightScale_%28RS%29.3a]
+{"HowTo update DNS hostnames automatically for your Amazon EC2 instances | MDLog:/sysadmin"}[http://www.ducea.com/2009/06/01/howto-update-dns-hostnames-automatically-for-your-amazon-ec2-instances/]
+
+    # config/deploy.rb
+    rs_enable :use_nickname
+
+Add use
+
 
 == Contributing to cap-rightscale
 
