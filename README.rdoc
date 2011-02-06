@@ -88,7 +88,7 @@ You must authenticate to use the RightScale API, Make sure to set your own login
 
 Put Authentication file described in RightScale API credentials into `<HOME>/.rsconf/rsapiconfig.yml`
 
- the `capistrano-rightscale` plugin
+the `capistrano-rightscale` plugin
 Or, You can define filepath:
 
     # config/deploy.rb
