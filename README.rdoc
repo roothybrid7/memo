@@ -142,9 +142,11 @@ Using RightScale Nickname, How to DNS hostname for ec2 instances:
 * {"HowTo update DNS hostnames automatically for your Amazon EC2 instances | MDLog:/sysadmin"}[http://www.ducea.com/2009/06/01/howto-update-dns-hostnames-automatically-for-your-amazon-ec2-instances/]
 
 
+
     # config/deploy.rb
     rs_enable :use_nickname         # RightScale nickname
     set :rs_domain, "ec2.int.com"   # set subdomain managed by your dns server zone(option: default ref <tt>search</tt> in <tt>/etc/resolv.conf</tt>)
+
     # set domain each role(priority over <tt>set :rs_domain</tt>)
     nickname :web, :nickname => "lb", :domain => "ec2.com"
 
@@ -154,6 +156,7 @@ Using ping and name resolv, validate host(except invalid host).
 
 * <tt>rs_enable :validate_echo</tt>: In case you want to except hang-up instance
 * <tt>rs_enable :validate_resolv</tt>: In case you want to except host can not be resolved
+
 
     # config/deploy.rb
     rs_enable :validate_echo, :validate_resolv
