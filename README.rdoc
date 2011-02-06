@@ -78,6 +78,21 @@ Machine tags and deployment mappings:
     tag :dbm, :name_prefix => "db", :tags => ["xx_db:env=prod", "xx_db:role=master"], :deployment => 12345
     # => role :dbm, ["dbXXX", ... in deployment ID:12345]
 
+=== RightScale API Credential
+
+see the below site:
+[Authentication]{http://support.rightscale.com/12-Guides/03-RightScale_API/RightScale_API_Examples/Authentication} - RightScale Cloud Management Support Portal
+
+You must authenticate to use the RightScale API, Make sure to set your own login/password(used to login to RightScale dashboard) and account number(the tail end of the Dashboard URL: Settings > Account)
+
+    Put Authentication file described in RightScale API credentials into `<HOME>/.rsconf/rsapiconfig.yml`
+
+    Or, You can define filepath:
+
+    # config/deploy.rb
+    set :rs_confpath, "/project/config/rs_auth.yml"
+
+
 === Caches
 
 These functions require RightScale api calls, which are slow. On the first call, Write a cache file in the temp directory.
@@ -86,15 +101,17 @@ Default cache lifetime is 86400 seconds(1day) each role.
 modified cache life time:
 
     # config/deploy.rb
-    set :rs_lifetime 86400 * 7 (1week)
+    set :rs_lifetime 86400 * 7  # 1week
 
 
-This can be disabled with ENV variable:`RS_CACHE=false` OR `set :rs_lifetime 0` in the Capfile.
+This can be disabled with ENV variable: `RS_CACHE=false` , `set :rs_lifetime 0` OR `rs_disable :use_rs_cache` in the Capfile.
 
     $ cap invoke COMMAND='hostname' RS_CACHE=false
 
-    # config/deploy.rb
+    # disable cache config/deploy.rb
     set :rs_lifetime 0
+    # the other way
+    rs_disable :use_rs_cache
 
 Conversely, to use cache to infinity with `set :rs_lifetime -1`.
 
