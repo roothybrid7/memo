@@ -81,7 +81,7 @@ Machine tags and deployment mappings:
 === RightScale API Credential
 
 see the below site:
-[Authentication]{http://support.rightscale.com/12-Guides/03-RightScale_API/RightScale_API_Examples/Authentication} - RightScale Cloud Management Support Portal
+{Authentication}[http://support.rightscale.com/12-Guides/03-RightScale_API/RightScale_API_Examples/Authentication] - RightScale Cloud Management Support Portal
 
 You must authenticate to use the RightScale API, Make sure to set your own login/password(used to login to RightScale dashboard) and account number(the tail end of the Dashboard URL: Settings > Account)
 
