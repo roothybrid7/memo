@@ -20,7 +20,7 @@ For MacOSX(MacPorts):
     $ port install ruby rb-rubygems
 
 
-Install the gem:
+Install the cap-rightscale:
 
     $ gem install cap-rightscale
 
