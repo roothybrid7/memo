@@ -46,7 +46,7 @@ Configure Capfile(example deploy.rb):
     tag :dbm, :tags => "xx_db:role=master", :deployment => DEPLOYMENT_ID
     tag :dbs, :tags => "xx_db:role=slave", :deployment => DEPLOYMENT_ID, :no_release => true
 
-Put RightScale API Credential file into <HOME>/.rsconf/rsapiconfig.yml
+Put RightScale API Credential file into <tt><HOME>/.rsconf/rsapiconfig.yml</tt>
 
     # <HOME>/.rsconf/rsapiconfig.yml
     username: user@example.com
@@ -86,9 +86,8 @@ see the below site:
 
 You must authenticate to use the RightScale API, Make sure to set your own login/password(used to login to RightScale dashboard) and account number(the tail end of the Dashboard URL: Settings > Account)
 
-Put Authentication file described in RightScale API credentials into `<HOME>/.rsconf/rsapiconfig.yml`
+Put Authentication file described in RightScale API credentials into <tt><HOME>/.rsconf/rsapiconfig.yml</tt>
 
-the `capistrano-rightscale` plugin
 Or, You can define filepath:
 
     # config/deploy.rb
@@ -106,7 +105,7 @@ modified cache life time:
     set :rs_lifetime 86400 * 7  # 1week
 
 
-This can be disabled with ENV variable: `RS_CACHE=false` , `set :rs_lifetime 0` OR `rs_disable :use_rs_cache` in the Capfile.
+This can be disabled with ENV variable: <tt>RS_CACHE=false</tt> , <tt>set :rs_lifetime 0</tt> OR <tt>rs_disable :use_rs_cache</tt> in the Capfile.
 
     $ cap invoke COMMAND='hostname' RS_CACHE=false
 
@@ -115,7 +114,7 @@ This can be disabled with ENV variable: `RS_CACHE=false` , `set :rs_lifetime 0` 
     # the other way
     rs_disable :use_rs_cache
 
-Conversely, to use cache to infinity with `set :rs_lifetime -1`.
+Conversely, to use cache to infinity with <tt>set :rs_lifetime -1</tt>.
 
     # config/deploy.rb
     set :rs_lifetime -1
