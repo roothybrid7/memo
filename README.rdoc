@@ -132,6 +132,7 @@ Use RightScale nickname(use as name to resolve for host in <tt>/etc/hosts</tt> o
 This takes priority over ip address.
 
 Using RightScale Nickname, How to DNS hostname for ec2 instances:
+* {"Developing RightScripts - RightScale Cloud Management Support Portal"}[http://support.rightscale.com/12-Guides/Dashboard_Users_Guide/Design/RightScripts/Actions/Developing_RightScripts#Document_your_RightScript_and_its_Inputs]
 * {"Environment Inputs - RightScale Cloud Management Support Portal"}[http://support.rightscale.com/15-References/Lists/List_of_Environment_Inputs#RightScale_%28RS%29.3a]
 * {"HowTo update DNS hostnames automatically for your Amazon EC2 instances | MDLog:/sysadmin"}[http://www.ducea.com/2009/06/01/howto-update-dns-hostnames-automatically-for-your-amazon-ec2-instances/]
 
