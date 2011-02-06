@@ -32,7 +32,7 @@ To prepare, go info the root directory of that project and run capify:
     $ cd <project_dir>
     $ capify .
 
-Configure(example deploy.rb):
+Configure Capfile(example deploy.rb):
 
     # config/deploy.rb
     require 'rubygems'
@@ -57,7 +57,7 @@ Put RightScale API Credential file into <HOME>/.rsconf/rsapiconfig.yml
 
 Run testing:
 
-    $ cap rightscale:none
+    $ cap rs:none
 
 == Contributing to cap-rightscale
  
