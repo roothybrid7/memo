@@ -163,24 +163,56 @@ Using ping and name resolv, validate host(except invalid host).
 
 == nickname
 
-==== Definition
+Definition:
 
     nickname(role, params)
 
-===
+=== Arguments
 
-      # Get servers in deployment
-      # === Parameters
-      # * _role_ - Capistrano role symbol (ex. :app, :web, :db)
-      # * _params[:name_prefix]_ - ex. :name_prefix => "db" (RightScale instance nickname)
-      # * _params[:deployment]_ - ex. :deployment => 1[https://my.rightscale.com/deployments/{id}]
-      # * _params[:domain]_ domain name(user defined) - ex. :domain => "example.com"
-      # * _params[:except_tags]_ except servers matching tags
-      #   - ex. :except_tags => ["xx_app:state=broken", "xx_app:state=out_of_service"]
-      # * _params[:xxx]_ - ex. :user => "www", :port => 2345, etc...
-      # === Examples
-      #   deployment_id = 1
-      #   nickname :db, :name_prefix => "db", :deployment => deployment_id, :user => "mysql"
+==== role
+
+Capistrano role paramter(:app, :web, :db)
+
+=== params
+
+Example:
+    nickname :app, :name_prefix => "ap", :deployment => 12345, :user => "www"
+    nickname :db, :name_prefix => "db", :deployment => 12345, :except_tags => "xx_db:state=broken"
+    nickname :mem, :name_prefix => "mem", :deployment => 12345, :except_tags => ["xx_mem:state=out_of_service"]
+
+== server_array
+
+Definition:
+
+    server_array(role, params)
+
+=== Arguments
+
+==== role
+
+Capistrano role paramter(:app, :web, :db)
+
+=== params
+
+Example:
+    server_array :app, :array_id => 6789, :user => "www"
+    server_array :mem, :array_id => 4321, :except_tags => "xx_mem:state=broken", :domain => "ec2.int.com"
+
+== tag
+
+Definition:
+
+    tag(role, params)
+
+=== role
+
+Capistrano role paramter(:app, :web, :db)
+
+=== params
+
+Example:
+    tag :dbm, :deployment => 12345, :name_prefix => "db", :tags => "xx_db:role=master", :primary => true
+    tag :dbs, :deployment => 12345, :tags => ["xx_db:role=slave", "xx_db:master"]   # matching tag "xx_db:master=<master_ip>"
 
 == Contributing to cap-rightscale
 
