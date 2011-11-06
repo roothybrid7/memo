@@ -215,6 +215,14 @@ Example:
     tag :dbm, :deployment => 12345, :name_prefix => "db", :tags => "xx_db:role=master", :primary => true
     tag :dbs, :deployment => 12345, :tags => ["xx_db:role=slave", "xx_db:master"]   # matching tag "xx_db:master=<master_ip>"
 
+== Output message
+
+To suppress output as possible(-v option):
+
+    $ cap -v shell
+    $ cap -v invoke COMMAND='cat /var/log/httpd/access_log' 2>/tmp/collect_httpd_access_log
+
+
 == Contributing to cap-rightscale
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
