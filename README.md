@@ -27,7 +27,7 @@ How to settings
 Checkout source
 
 ```
-git clone git://github.com/roothybrid7/xhrdavclient.git xhrdavclient
+git clone git://github.com/roothybrid7/xhrdavclient.git
 ```
 
 Copy your application7's javascript directory
