@@ -10,11 +10,11 @@ This is a WebDAV Client Ajax API Library Using Google Closure library.
 Scripts
 --------
 
-* library script
+* library
     * xhrdavclient.js
     * xhrdavclient-min.js (Optimized)
 
-* src scripts
+* src
     * client.js (Low-level API)
     * davfs.js (High-level API like FileSystem)
     * resourcecontroller.js (resource base API: model-controller)
