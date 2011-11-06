@@ -33,6 +33,7 @@ cp xhrdavclient/lib/xhrdavclient-min.js your-appdir/js/
 ```
 
 Write code
+
 ``` html
 # Get WebDAV resource properties
 <!DOCTYPE html>
