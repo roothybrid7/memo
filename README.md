@@ -20,8 +20,10 @@ How to settings
 
 * Quick Start
 
-``` sh
+```
 git clone git://github.com/roothybrid7/xhrdavclient.git xhrdavclient
+```
+```
 cp xhrdavclient/lib/xhrdavclient-min.js your-appdir/js/
 ```
 
