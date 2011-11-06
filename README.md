@@ -10,9 +10,14 @@ This is a WebDAV Client Ajax API Library Using Google Closure library.
 Scripts
 --------
 
-* client.js (Low-level API)
-* davfs.js (High-level API like FileSystem)
-* resourcecontroller.js (resource base API: model-controller)
+* library script
+** xhrdavclient.js
+** xhrdavclient-min.js (Optimized)
+
+* src scripts
+** client.js (Low-level API)
+** davfs.js (High-level API like FileSystem)
+** resourcecontroller.js (resource base API: model-controller)
 
 How to settings
 -----------------
@@ -112,7 +117,7 @@ OR
 ```
 cd xhrdavclient
 ./tools/builder.sh -w
-=> generated 'lib/xhrdavclient.js' in current directory.
+=> generated 'lib/xhrdavclient-min.js' in current directory.
 ```
 
 To use closure-library and xdavclient library
