@@ -20,13 +20,19 @@ How to settings
 
 * Quick Start
 
+Checkout source
+
 ```
 git clone git://github.com/roothybrid7/xhrdavclient.git xhrdavclient
 ```
+
+Copy your application7's javascript directory
+
 ```
 cp xhrdavclient/lib/xhrdavclient-min.js your-appdir/js/
 ```
 
+Write code
 ``` html
 # Get WebDAV resource properties
 <!DOCTYPE html>
@@ -54,7 +60,6 @@ cp xhrdavclient/lib/xhrdavclient-min.js your-appdir/js/
 </body>
 </html>
 ```
-
 
 ``` html
 # Get current directory file list.
