@@ -91,54 +91,25 @@ Write code
 ```
 
 
-Integrate Scripts
--------------------
-
-* Command
-
-    $ ./tools/builder.sh
-    => generated 'xhrdavclient.js' in current directory.
-
-
-Replace script.
-
-    #index.html
-    <!DOCTYPE html>
-    <html lang="ja">
-    <head>
-      <meta charset="UTF-8" />
-    <!--
-      <script src="closure-library/closure/goog/base.js" type="text/javascript"></script>
-      <script src="xhrdavclientdeps.js" type="text/javascript"></script>
-    -->
-      <script src="xhrdavclient.js" type="text/javascript"></script>
-      <script type="text/javascript">
-        goog.require('goog.object');
-        goog.require('goog.net.XhrManager');
-        goog.require('xhrdav.lib.Client');
-        goog.require('xhrdav.lib.HttpStatus');
-      </script>
-    [...]
-    </html>
-
-
 Closure compiler
 -----------------
 
 Generate script file with optimization.
 
-* AdvancedOptimizations
+* AdvancedOptimizations(Not support)
 
-    $ ./tools/builder.sh -a
-    => generated 'xhrdavclient.js' in current directory.
+* SimpleOptimizations(Default)
 
-* SimpleOptimizations
-
-    $ ./tools/builder.sh -s
-    => generated 'xhrdavclient.js' in current directory.
+```
+$ ./tools/builder.sh -s
+OR
+$ ./tools/builder.sh
+=> generated 'lib/xhrdavclient-min.js' in current directory.
+```
 
 * WhitespaceOnly
 
-    $ ./tools/builder.sh -w
-    => generated 'xhrdavclient.js' in current directory.
-
+```
+$ ./tools/builder.sh -w
+=> generated 'lib/xhrdavclient.js' in current directory.
+```
