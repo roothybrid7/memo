@@ -11,9 +11,8 @@ Scripts
 --------
 
 * client.js (Low-level API)
-* davfs.js (FileSystem like High-level API)
-* resourcecontroller.js (resource base API: model+controller)
-* httpstatus.js (WebDAV HTTP Extensions Status Code enum)
+* davfs.js (High-level API like FileSystem)
+* resourcecontroller.js (resource base API: model-controller)
 
 How to settings
 -----------------
@@ -94,22 +93,38 @@ Write code
 Closure compiler
 -----------------
 
-Generate script file with optimization.
+If not use closure-library, Generate script file with optimization.
 
-* AdvancedOptimizations(Not support)
+* AdvancedOptimizations(No working/Not support)
 
 * SimpleOptimizations(Default)
 
 ```
-$ ./tools/builder.sh -s
+cd xhrdavclient
+./tools/builder.sh -s
 OR
-$ ./tools/builder.sh
+./tools/builder.sh
 => generated 'lib/xhrdavclient-min.js' in current directory.
 ```
 
 * WhitespaceOnly
 
 ```
-$ ./tools/builder.sh -w
+cd xhrdavclient
+./tools/builder.sh -w
 => generated 'lib/xhrdavclient.js' in current directory.
+```
+
+To use closure-library and xdavclient library
+----------------------------------------------
+
+Copy src/*.js and Regenerate deps.js
+
+```
+# Example
+cp -r xhrdavclient/src/* your-appdir/js/
+cd your-appdir
+python closure-library/closure/bin/build/depswriter.py
+--root_with_prefix="js ../../../js"
+--output_file=deps.js
 ```
