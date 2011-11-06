@@ -20,33 +20,66 @@ How to settings
 
 * Quick Start
 
-``` html
-    #index.html
-    <!DOCTYPE html>
-    <html lang="ja">
-    <head>
-      <meta charset="UTF-8" />
-      <script src="closure-library/closure/goog/base.js" type="text/javascript"></script>
-      <script src="xhrdavclientdeps.js" type="text/javascript"></script>
-      <script type="text/javascript">
-        goog.require('goog.object');
-        goog.require('goog.net.XhrManager');
-        goog.require('xhrdav.lib.Client');
-        goog.require('xhrdav.lib.HttpStatus');
-      </script>
-    </head>
-    <body>
-      <div id="runner"></div>
-      <script type="text/javascript">
-        var dir = '/mydav/'
-        var dav = new xhrdav.lib.Client();
-        var httpStatus = xhrdav.lib.HttpStatus;
-        var httpStatusText = xhrdav.lib.HttpStatus.text;
+```
+git clone git://github.com/roothybrid7/xhrdavclient.git xhrdavclient
+cp xhrdavclient/lib/xhrdavclient-min.js your-appdir/js/
+```
 
-        dav.propfind(dir);
-      </script>
-    </body>
-    </html>
+``` html
+# Get WebDAV resource properties
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <script src="js/xhrdavclient-min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="runner"></div>
+  <script type="text/javascript">
+    var dir = '/mydav/'
+    var dav = new xhrdav.lib.Client();
+    var httpStatus = xhrdav.lib.HttpStatus;
+    var httpStatusText = xhrdav.lib.HttpStatus.text;
+
+    var callback = function(status, content, headers) {
+      console.log(status); # => 207
+      content.log(content);
+      # => <D:multistatus xmlns:D="DAV:" xmlns:ns0="DAV:">...</D:multistatus>
+    };
+
+    dav.propfind(dir, callback);
+  </script>
+</body>
+</html>
+```
+
+
+``` html
+# Get current directory file list.
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <script src="js/xhrdavclient-min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="runner"></div>
+  <script type="text/javascript">
+    var dir = '/mydav/'
+    var davFs = xhrdav.DavFs.getInstance();
+    var httpStatus = xhrdav.lib.HttpStatus;
+    var httpStatusText = xhrdav.lib.HttpStatus.text;
+
+    var callback = function(errors, content) {
+      console.log(errors.hasRequest()); # => false
+      content.log(content);
+      # => {root: {href: '/mydav/', ...}, childs: [{href: '/mydav/foo.txt', ...}, {href: '/mydav/bar/', ...}]}
+    };
+
+    davFs.getRequest().listDir(dir, callback, null, null, this);
+  </script>
+</body>
+</html>
 ```
 
 
