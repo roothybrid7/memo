@@ -11,13 +11,13 @@ Scripts
 --------
 
 * library script
-** xhrdavclient.js
-** xhrdavclient-min.js (Optimized)
+    * xhrdavclient.js
+    * xhrdavclient-min.js (Optimized)
 
 * src scripts
-** client.js (Low-level API)
-** davfs.js (High-level API like FileSystem)
-** resourcecontroller.js (resource base API: model-controller)
+    * client.js (Low-level API)
+    * davfs.js (High-level API like FileSystem)
+    * resourcecontroller.js (resource base API: model-controller)
 
 How to settings
 -----------------
