@@ -33,7 +33,7 @@ git clone git://github.com/roothybrid7/xhrdavclient.git xhrdavclient
 Copy your application7's javascript directory
 
 ```
-cp xhrdavclient/lib/xhrdavclient-min.js your-appdir/js/
+cp xhrdavclient/lib/xhrdavclient-min.js your-appdir/lib/
 ```
 
 Write code
@@ -44,7 +44,7 @@ Write code
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <script src="js/xhrdavclient-min.js" type="text/javascript"></script>
+  <script src="lib/xhrdavclient-min.js" type="text/javascript"></script>
 </head>
 <body>
   <div id="runner"></div>
@@ -72,7 +72,7 @@ Write code
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <script src="js/xhrdavclient-min.js" type="text/javascript"></script>
+  <script src="lib/xhrdavclient-min.js" type="text/javascript"></script>
 </head>
 <body>
   <div id="runner"></div>
@@ -123,11 +123,11 @@ cd xhrdavclient
 To use closure-library and xdavclient library
 ----------------------------------------------
 
-Copy src/*.js and Regenerate deps.js
+Copy src/*.js and generate deps.js for closure-library
 
 ```
-# Example
-cp -r xhrdavclient/src/* your-appdir/js/
+# Example(App js dir: js/{app,xhrdavclient})
+cp -r xhrdavclient/src/* your-appdir/js/xhrdavclient/
 cd your-appdir
 python closure-library/closure/bin/build/depswriter.py
 --root_with_prefix="js ../../../js"
