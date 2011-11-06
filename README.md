@@ -94,6 +94,33 @@ Write code
 </html>
 ```
 
+For Cross-domain Ajax
+----------------------
+
+Nothing. Setting Reverse-proxy server.
+
+For apache example
+
+```
+# XHR domain -> WebDAV domain
+ProxyPass /crosmydav http://other-sitedav/crosmydav
+ProxyPassReverse /crosmydav http://other-sitedav/crosmydav
+```
+
+
+To use closure-library and xdavclient library
+----------------------------------------------
+
+Copy src/*.js and generate deps.js for closure-library
+
+```
+# Example(App js dir: js/{app,xhrdavclient})
+cp -r xhrdavclient/src/* your-appdir/js/xhrdavclient/
+cd your-appdir
+python closure-library/closure/bin/build/depswriter.py
+--root_with_prefix="js ../../../js"
+--output_file=deps.js
+```
 
 Closure compiler
 -----------------
@@ -118,18 +145,4 @@ OR
 cd xhrdavclient
 ./tools/builder.sh -w
 => generated 'lib/xhrdavclient-min.js' in current directory.
-```
-
-To use closure-library and xdavclient library
-----------------------------------------------
-
-Copy src/*.js and generate deps.js for closure-library
-
-```
-# Example(App js dir: js/{app,xhrdavclient})
-cp -r xhrdavclient/src/* your-appdir/js/xhrdavclient/
-cd your-appdir
-python closure-library/closure/bin/build/depswriter.py
---root_with_prefix="js ../../../js"
---output_file=deps.js
 ```
